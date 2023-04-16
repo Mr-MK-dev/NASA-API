@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "lol": "node server.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
