@@ -56,7 +56,8 @@ exports.getHabitablePlantes = (req, res) => {
 };
 
 exports.postNewLaunch = (req, res) => {
-    const { date, missionName, rocketType, destinationExoplanet } = req.body;
+    const { missionName, rocketType, destinationExoplanet } = req.body;
+    const date = new Date(req.body.date);
 
     class launchRocket {
         constructor(date, missionName, rocketType, destinationExoplanet) {
@@ -89,5 +90,15 @@ exports.postNewLaunch = (req, res) => {
         data: {
             rocket1,
         },
+    });
+};
+
+exports.getAllRockets = (req, res) => {
+    const rockets = JSON.parse(fs.readFileSync(jsonFile));
+
+    console.log(rockets);
+    res.json({
+        status: 'success',
+        data: rockets,
     });
 };
