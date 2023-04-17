@@ -5,12 +5,11 @@ async function httpGetPlanets() {
 }
 
 async function httpGetLaunches() {
-    const res = await fetch('http://localhost:3030/api/rockets');
+    const res = await fetch('http://localhost:3030/api/history');
     return res.json();
 }
 
 async function httpSubmitLaunch(launch) {
-    console.log(launch);
     try {
         return (res = await fetch('http://localhost:3030/api/launch', {
             method: 'POST',

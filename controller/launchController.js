@@ -56,32 +56,27 @@ exports.getHabitablePlantes = (req, res) => {
 };
 
 exports.postNewLaunch = (req, res) => {
-    const { missionName, rocketType, destinationExoplanet } = req.body;
-    const date = new Date(req.body.date);
+    const { mission, rocket, target } = req.body;
+    const launchDate = new Date(req.body.launchDate);
 
     class launchRocket {
-        constructor(date, missionName, rocketType, destinationExoplanet) {
-            this.date = date;
-            this.missionName = missionName;
-            this.rocketType = rocketType;
-            this.destinationExoplanet = destinationExoplanet;
+        constructor(launchDate, mission, rocket, target) {
+            this.launchDate = launchDate;
+            this.mission = mission;
+            this.rocket = rocket;
+            this.target = target;
         }
         showData() {
             console.log(
-                `date : ${this.date} , missionName : ${this.missionName} ,rocketType : ${this.rocketType}
-            destinationExoplanet : ${this.destinationExoplanet}
+                `date : ${this.launchDate} , missionName : ${this.mission} ,rocketType : ${this.rocket}
+            destinationExoplanet : ${this.target}
             
             `
             );
         }
     }
 
-    const rocket1 = new launchRocket(
-        date,
-        missionName,
-        rocketType,
-        destinationExoplanet
-    );
+    const rocket1 = new launchRocket(launchDate, mission, rocket, target);
 
     handlePostReq(rocket1);
 
@@ -89,17 +84,17 @@ exports.postNewLaunch = (req, res) => {
 };
 
 exports.getAllRockets = (req, res) => {
-    res.json(uniqueArray);
+    res.json(rockets);
 };
 
 exports.history = (req, res) => {
     var rockets = JSON.parse(fs.readFileSync(jsonFile));
     rockets.forEach((ele, i) => {
-        return !!ele['date'] ? true : rockets.splice(i, 1);
+        return !!ele['launchDate'] ? true : rockets.splice(i, 1);
     });
 
     rockets.forEach((ele, i) => {
-        Date.parse(ele.date) <= Date.now() ? true : rockets.splice(i, 1);
+        Date.parse(ele.launchDate) <= Date.now() ? true : rockets.splice(i, 1);
     });
 
     res.json(rockets);
@@ -109,11 +104,11 @@ exports.upcomming = (req, res) => {
     var rockets = JSON.parse(fs.readFileSync(jsonFile));
 
     rockets.forEach((ele, i) => {
-        return !!ele['date'] ? true : rockets.splice(i, 1);
+        return !!ele['launchDate'] ? true : rockets.splice(i, 1);
     });
 
     rockets.forEach((ele, i) => {
-        Date.parse(ele.date) > Date.now() ? true : rockets.splice(i, 1);
+        Date.parse(ele.launchDate) > Date.now() ? true : rockets.splice(i, 1);
     });
 
     res.json(rockets);
