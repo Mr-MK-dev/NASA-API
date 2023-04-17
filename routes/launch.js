@@ -8,4 +8,9 @@ launchRouter
     .post(launchController.postNewLaunch);
 
 launchRouter.route('/rockets').get(launchController.getAllRockets);
+
+launchRouter.route('/history').get(launchController.history);
+launchRouter.route('/upcomming').get(launchController.upcomming);
+
+launchRouter.route('/rockets/:id').delete(launchController.deleteRocket);
 module.exports = launchRouter;

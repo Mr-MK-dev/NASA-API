@@ -35,6 +35,7 @@ function destinationExoplanet() {
 }
 
 function handlePostReq(rocket1) {
+    rocket1 = Object.assign(rocket1, { id: Date.now() });
     const loadData = JSON.parse(fs.readFileSync(jsonFile));
 
     loadData.push(rocket1);
@@ -49,10 +50,7 @@ exports.getHabitablePlantes = (req, res) => {
         return el['kepler_name'];
     });
     // console.log(items);
-    res.json({
-        status: 'success',
-        mapData,
-    });
+    res.json(mapData);
 };
 
 exports.postNewLaunch = (req, res) => {
@@ -85,20 +83,50 @@ exports.postNewLaunch = (req, res) => {
 
     handlePostReq(rocket1);
 
-    res.json({
-        status: 'success',
-        data: {
-            rocket1,
-        },
-    });
+    res.json(rocket1);
 };
 
 exports.getAllRockets = (req, res) => {
-    const rockets = JSON.parse(fs.readFileSync(jsonFile));
+    res.json(rockets);
+};
 
-    console.log(rockets);
-    res.json({
-        status: 'success',
-        data: rockets,
+exports.history = (req, res) => {
+    var rockets = JSON.parse(fs.readFileSync(jsonFile));
+    rockets.forEach((ele, i) => {
+        return !!ele['date'] ? true : rockets.splice(i, 1);
     });
+
+    rockets.forEach((ele, i) => {
+        Date.parse(ele.date) <= Date.now() ? true : rockets.splice(i, 1);
+    });
+
+    res.json(rockets);
+};
+
+exports.upcomming = (req, res) => {
+    var rockets = JSON.parse(fs.readFileSync(jsonFile));
+
+    rockets.forEach((ele, i) => {
+        return !!ele['date'] ? true : rockets.splice(i, 1);
+    });
+
+    rockets.forEach((ele, i) => {
+        Date.parse(ele.date) > Date.now() ? true : rockets.splice(i, 1);
+    });
+
+    res.json(rockets);
+};
+
+exports.deleteRocket = (req, res) => {
+    const id = req.params.id * 1;
+
+    const parseJson = JSON.parse(fs.readFileSync(jsonFile));
+    parseJson.forEach((el, i) => {
+        console.log(el.id);
+        console.log('-------------------------------------');
+        if (!el['id']) parseJson.splice(i, 1);
+        console.log(el.id);
+        console.log(`****`);
+    });
+    res.send('Delete');
 };
