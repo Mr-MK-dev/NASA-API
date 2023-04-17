@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "5901f02c-30f0-42e7-b404-cd30fdc70be2",
+		"name": "Nasa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Launch Rocket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"date\":\"2020-04-28\",\r\n        \"missionName\":\"lolololol Giza\",\r\n        \"rocketType\":\"nuclear Giza\",\r\n        \"destinationExoplanet\":\"Kepler-442 b\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/launch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"launch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Distenations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"date\":\"2022-03-25\",\r\n        \"missionName\":\"new\",\r\n        \"rocketType\":\"newWOw\",\r\n        \"destinationExoplanet\":\"mk\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/launch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"launch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Rockets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"date\":\"2022-03-25\",\r\n        \"missionName\":\"new\",\r\n        \"rocketType\":\"newWOw\",\r\n        \"destinationExoplanet\":\"mk\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/rockets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"rockets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "History",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"date\":\"2022-03-25\",\r\n        \"missionName\":\"new\",\r\n        \"rocketType\":\"newWOw\",\r\n        \"destinationExoplanet\":\"mk\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/rockets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"rockets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upcomming",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"date\":\"2022-03-25\",\r\n        \"missionName\":\"new\",\r\n        \"rocketType\":\"newWOw\",\r\n        \"destinationExoplanet\":\"mk\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/rockets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"rockets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upcomming Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"date\":\"2022-03-25\",\r\n        \"missionName\":\"new\",\r\n        \"rocketType\":\"newWOw\",\r\n        \"destinationExoplanet\":\"mk\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/rockets/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"rockets",
+						"123"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
