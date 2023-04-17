@@ -45,13 +45,14 @@ function handlePostReq(rocket1) {
 }
 
 // destinationExoplanet();
-destinationExoplanet();
 exports.getHabitablePlantes = (req, res) => {
+    destinationExoplanet();
     const mapData = items.map((el) => {
         return el['kepler_name'];
     });
+    const uniqueValue = [...new Set(mapData)];
     // console.log(items);
-    res.json(mapData);
+    res.json(uniqueValue);
 };
 
 exports.postNewLaunch = (req, res) => {
@@ -88,7 +89,7 @@ exports.postNewLaunch = (req, res) => {
 };
 
 exports.getAllRockets = (req, res) => {
-    res.json(rockets);
+    res.json(uniqueArray);
 };
 
 exports.history = (req, res) => {
