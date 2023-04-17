@@ -3,6 +3,7 @@ const csv = require('csv-parse');
 
 const jsonFile = './csv/rockets.json';
 const csvFile1 = './csv/kepler_data.csv';
+var rockets = JSON.parse(fs.readFileSync(jsonFile));
 
 function habitablePlanetsChecker(planet) {
     return (
@@ -122,11 +123,9 @@ exports.deleteRocket = (req, res) => {
 
     const parseJson = JSON.parse(fs.readFileSync(jsonFile));
     parseJson.forEach((el, i) => {
-        console.log(el.id);
-        console.log('-------------------------------------');
-        if (!el['id']) parseJson.splice(i, 1);
-        console.log(el.id);
-        console.log(`****`);
+        if (el['id'] === id) return parseJson.splice(i, 1);
     });
-    res.send('Delete');
+    const str = JSON.stringify(parseJson);
+    fs.writeFileSync(jsonFile, str);
+    res.json(rockets);
 };
